@@ -7,7 +7,10 @@ goals:
     features: []
   1500:
     name: HyperLamp Navigation Tips
-    features: []
+    features:
+    - name: "[Project] Make runtime objects available through `extra`"
+      ref: /
+      since: 2024/08/17
   2000:
     name: FusionDrive Ejection Configuration
     features: []
