@@ -1,0 +1,93 @@
+# griffe-runtime-objects
+
+> Make runtime objects available through `extra`.
+
+# Usage
+
+# griffe-runtime-objects
+
+Make runtime objects available through `extra`.
+
+## Installation
+
+```
+pip install griffe-runtime-objects
+```
+
+## Usage
+
+[Enable](https://mkdocstrings.github.io/griffe/guide/users/extending/#using-extensions) the `griffe_runtime_objects` extension. Now all Griffe objects will have access to the corresponding runtime objects in their `extra` attribute, under the `runtime-objects` namespace:
+
+```
+>>> import griffe
+>>> griffe_data = griffe.load("griffe", extensions=griffe.load_extensions("griffe_runtime_objects"), resolve_aliases=True)
+>>> griffe_data["parse"].extra
+defaultdict(<class 'dict'>, {'runtime-objects': {'object': <function parse at 0x78685c951260>}})
+>>> griffe_data["Module"].extra
+defaultdict(<class 'dict'>, {'runtime-objects': {'object': <class '_griffe.models.Module'>}})
+```
+
+This extension can be useful in custom templates of mkdocstrings-python, to iterate on an object value or attributes.
+
+With MkDocs:
+
+```
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        options:
+          extensions:
+          - griffe_runtime_objects
+```
+
+## Sponsors
+# API
+
+# griffe_runtime_objects
+
+griffe-runtime-objects package.
+
+Make runtime objects available through `extra`.
+
+Classes:
+
+- **`RuntimeObjectsExtension`** – Store runtime objects in Griffe objects' extra attribute.
+
+## RuntimeObjectsExtension
+
+Bases: `Extension`
+
+Store runtime objects in Griffe objects' `extra` attribute.
+
+Methods:
+
+- **`on_instance`** – Get runtime object corresponding to Griffe object, store it in extra namespace.
+
+### on_instance
+
+```
+on_instance(
+    *, node: AST | ObjectNode, obj: Object, **kwargs: Any
+) -> None
+```
+
+Get runtime object corresponding to Griffe object, store it in `extra` namespace.
+
+Source code in `src/griffe_runtime_objects/_internal/extension.py`
+
+```
+def on_instance(self, *, node: AST | griffe.ObjectNode, obj: griffe.Object, **kwargs: Any) -> None:  # noqa: ARG002
+    """Get runtime object corresponding to Griffe object, store it in `extra` namespace."""
+    if isinstance(node, griffe.ObjectNode):
+        runtime_obj = node.obj
+    else:
+        filepath = obj.package.filepath
+        search_paths = [path.parent for path in filepath] if isinstance(filepath, list) else [filepath.parent]
+        try:
+            runtime_obj = griffe.dynamic_import(obj.path, search_paths)
+        except ImportError as error:
+            _logger.debug(f"Could not import {obj.path}: {error}")
+            return
+    obj.extra["runtime-objects"]["object"] = runtime_obj
+```

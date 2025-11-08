@@ -1,0 +1,12 @@
+# griffe-runtime-objects
+
+> Make runtime objects available through `extra`.
+
+## Usage
+
+- [Overview](https://mkdocstrings.github.io/griffe-runtime-objects/index.md)
+
+## API
+
+- [API reference](https://mkdocstrings.github.io/griffe-runtime-objects/reference/api/index.md)
+
