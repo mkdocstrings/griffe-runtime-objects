@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from ast import AST
 
 
-logger = griffe.get_logger("griffe_runtime_objects")
+_logger = griffe.get_logger("griffe_runtime_objects")
 
 
 class RuntimeObjectsExtension(griffe.Extension):
@@ -24,6 +24,6 @@ class RuntimeObjectsExtension(griffe.Extension):
             try:
                 runtime_obj = griffe.dynamic_import(obj.path, search_paths)
             except ImportError as error:
-                logger.debug(f"Could not import {obj.path}: {error}")
+                _logger.debug(f"Could not import {obj.path}: {error}")
                 return
         obj.extra["runtime-objects"]["object"] = runtime_obj
