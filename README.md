@@ -1,7 +1,7 @@
 # griffe-runtime-objects
 
 [![ci](https://github.com/mkdocstrings/griffe-runtime-objects/workflows/ci/badge.svg)](https://github.com/mkdocstrings/griffe-runtime-objects/actions?query=workflow%3Aci)
-[![documentation](https://img.shields.io/badge/docs-mkdocs-708FCC.svg?style=flat)](https://mkdocstrings.github.io/griffe-runtime-objects/)
+[![documentation](https://img.shields.io/badge/docs-zensical-FF9100.svg?style=flat)](https://mkdocstrings.github.io/griffe-runtime-objects/)
 [![pypi version](https://img.shields.io/pypi/v/griffe-runtime-objects.svg)](https://pypi.org/project/griffe-runtime-objects/)
 [![gitter](https://img.shields.io/badge/matrix-chat-4DB798.svg?style=flat)](https://app.gitter.im/#/room/#griffe-runtime-objects:gitter.im)
 
