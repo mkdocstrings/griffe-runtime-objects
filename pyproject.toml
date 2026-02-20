@@ -28,7 +28,9 @@ classifiers = [
     "Topic :: Utilities",
     "Typing :: Typed",
 ]
-dependencies = []
+dependencies = [
+    "griffelib>=2.0",
+]
 
 [project.urls]
 Homepage = "https://mkdocstrings.github.io/griffe-runtime-objects"
