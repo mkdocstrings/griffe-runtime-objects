@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.3.1](https://github.com/mkdocstrings/griffe-runtime-objects/releases/tag/0.3.1) - 2026-02-20
+
+<small>[Compare with 0.3.0](https://github.com/mkdocstrings/griffe-runtime-objects/compare/0.3.0...0.3.1)</small>
+
+### Build
+
+- Depend on griffelib 2.0 ([d2f015b](https://github.com/mkdocstrings/griffe-runtime-objects/commit/d2f015b341d1a275ebf57176c5edab7814bb479b) by Timothée Mazzucotelli).
+
 ## [0.3.0](https://github.com/mkdocstrings/griffe-runtime-objects/releases/tag/0.3.0) - 2025-11-09
 
 <small>[Compare with 0.2.0](https://github.com/mkdocstrings/griffe-runtime-objects/compare/0.2.0...0.3.0)</small>
